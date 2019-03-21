@@ -21,11 +21,13 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
-
-
-
-
+for i = 1:length(idx)
+    for j = 1:K
+        normSq(j, 1) = norm( X(i,:)-centroids(j,:), 2)^2;
+    end
+    minNormLoc = find( normSq == min(normSq) );
+    idx(i, 1) = minNormLoc(1);
+end
 
 % =============================================================
 
